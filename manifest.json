@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "chrome-extensionify",
+  "description": "Project scaffold for building Chrome extensions with Browserify.",
+  "version": "0.1.0",
+  "icons": {
+    "16": "resources/browserify-logo.png",
+    "48": "resources/browserify-logo.png",
+    "128": "resources/browserify-logo.png"
+  },
+  "author": "Patrick McCarthy",
+  "homepage_url": "http://www.github.com/ptmccarthy/chrome-extensionify",
+
+  "background": { "scripts": ["background.js"] },
+
+  "content_scripts": [
+    // chrome extension content scripts
+  ],
+  
+  "permissions": [
+    "tabs"
+  ],
+
+  "browser_action": {
+    "default_title": "chrome-extensionify",
+    "default_popup": "index.html",
+    "default_icon": "resources/browserify-logo.png"
+  }
+}
