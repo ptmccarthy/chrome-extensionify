@@ -149,7 +149,6 @@ module.exports = function(grunt) {
   grunt.registerTask('prepare', 'Build preparation steps', [
     'clean:dist',
     'jshint:all',
-    'npm-install',
     'copy:all'
   ]);
 
