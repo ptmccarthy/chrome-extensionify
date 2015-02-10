@@ -129,6 +129,19 @@ module.exports = function(grunt) {
           },
           watch: true
         }
+      },
+      background: {
+        src: [
+          '<%= config.src %>/chrome/main.js',
+          '<%= config.src %>/chrome/background.js'
+        ],
+        dest: '<%= config.dist %>/background.js',
+        options: {
+          browserifyOptions: {
+            debug: true
+          },
+          watch: true
+        }
       }
     }
   });
@@ -143,11 +156,13 @@ module.exports = function(grunt) {
   grunt.registerTask('build:bundle', 'Build extension bundle for loading into Chrome', [
     'prepare',
     'karma:unit',
+    'browserify:background',
     'browserify:app'
   ]);
 
   grunt.registerTask('build:debug', 'Run in debugger/watch mode', [
     'prepare',
+    'browserify:background',
     'browserify:app',
     'concurrent:dev'
   ]);
